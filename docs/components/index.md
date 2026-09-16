@@ -1,0 +1,27 @@
+# Component reference
+
+Every page includes a standalone program, all Props fields, behavior, and limitations. `Label` is covered with Text; `TextButton` with Button.
+
+- [Box](/components/box)
+- [Text](/components/text)
+- [Button](/components/button)
+- [ButtonGroup](/components/button-group)
+- [InputGroup](/components/input-group)
+- [Input](/components/input)
+- [Textarea](/components/textarea)
+- [Checkbox](/components/checkbox)
+- [Radio](/components/radio)
+- [ToggleSwitch](/components/toggle-switch)
+- [Slider](/components/slider)
+- [Select](/components/select)
+- [Tabs](/components/tabs)
+- [Menu](/components/menu)
+- [Scroll](/components/scroll)
+- [VirtualList](/components/virtual-list)
+- [Popover](/components/popover)
+- [Tooltip](/components/tooltip)
+- [Icon](/components/icon)
+- [Image](/components/image)
+- [Avatar](/components/avatar)
+- [Badge](/components/badge)
+- [ProgressBar](/components/progress-bar)

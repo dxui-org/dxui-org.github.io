@@ -1,0 +1,72 @@
+# DXUI
+
+> DXUI is a Go desktop GUI framework for Windows, macOS, and Linux. It combines declarative views with retained updates, renders on demand, and supports builds without CGO and multiple windows.
+
+This site provides English and Chinese tutorials, complete component examples, and public API references for Go developers. Install with `go get github.com/dxui-org/dxui`. Go 1.25 or later is required.
+
+Import components from `github.com/dxui-org/dxui` and official icons from `github.com/dxui-org/dxui/icon`. Keep application state outside view builders. Regular component callbacks update the current window; background tasks submit changes through App.Update or the target Window.Update. Start with a tutorial or component page, then consult the full declarations for parameters and constraints. Pre-v1 APIs may introduce incompatible changes, so check the version used by the project.
+
+English is the default language. Chinese pages use the /zh-cn/ prefix. The links below point to the English documentation pages. Complete Go examples on those pages can be copied and run locally.
+
+## Tutorials
+
+- [Learning Path](https://dxui-org.github.io/guide/): From the first window to interaction, layout, and forms.
+- [First Window](https://dxui-org.github.io/guide/getting-started): Dependency installation, a complete main.go, running, and building.
+- [State and Events](https://dxui-org.github.io/guide/state): State in Go variables, event callbacks, input values, and keys.
+- [Layout and Responsive UI](https://dxui-org.github.io/guide/layout): Box layout, sizing, remaining space, window resizing, and scrolling.
+- [Styles and Themes](https://dxui-org.github.io/guide/style): Style, interaction states, color tokens, light and dark themes, and precedence.
+- [Building a Form](https://dxui-org.github.io/guide/forms): A complete example of input, selection, validation, and submission.
+- [Background Tasks and Lifecycle](https://dxui-org.github.io/guide/async): Goroutines, App.Update, task cancellation, and shutdown.
+- [Multiple Windows](https://dxui-org.github.io/guide/multi-window): Child windows, independent state, updates between windows, and close policies.
+- [Troubleshooting](https://dxui-org.github.io/guide/troubleshooting): Startup, input, layout, fonts, performance, and resource issues.
+
+## Components
+
+- [Component Overview](https://dxui-org.github.io/components/): Complete programs, all props, interaction behavior, and limitations.
+- [Box](https://dxui-org.github.io/components/box): Containers, direction, spacing, and alignment.
+- [Text / Label](https://dxui-org.github.io/components/text): Text, wrapping, and line limits.
+- [Button / TextButton](https://dxui-org.github.io/components/button): Buttons, appearance, disabled state, and press events.
+- [ButtonGroup](https://dxui-org.github.io/components/button-group): Connected button groups and dividers.
+- [InputGroup](https://dxui-org.github.io/components/input-group): Input fields with prefixes and suffixes.
+- [Input](https://dxui-org.github.io/components/input): Single-line input, passwords, selection, and submission.
+- [Textarea](https://dxui-org.github.io/components/textarea): Multiline input, wrapping, and selection.
+- [Checkbox](https://dxui-org.github.io/components/checkbox): Checkboxes and boolean state.
+- [Radio](https://dxui-org.github.io/components/radio): Radio options and shared selection state.
+- [ToggleSwitch](https://dxui-org.github.io/components/toggle-switch): Switches and state changes.
+- [Slider](https://dxui-org.github.io/components/slider): Numeric ranges, steps, and dragging.
+- [Select](https://dxui-org.github.io/components/select): Dropdown options and selected values.
+- [Tabs](https://dxui-org.github.io/components/tabs): Tab selection and content switching.
+- [Menu](https://dxui-org.github.io/components/menu): Menu items and action callbacks.
+- [Scroll](https://dxui-org.github.io/components/scroll): Scroll direction, viewports, and offsets.
+- [VirtualList](https://dxui-org.github.io/components/virtual-list): Virtual lists with fixed row heights, stable keys, and data versions.
+- [Popover](https://dxui-org.github.io/components/popover): Interactive overlays, open state, and placement.
+- [Tooltip](https://dxui-org.github.io/components/tooltip): Tooltip content, delays, and placement.
+- [Icon](https://dxui-org.github.io/components/icon): Icon data, size, and color.
+- [Image](https://dxui-org.github.io/components/image): Image resources, fitting, and load events.
+- [Avatar](https://dxui-org.github.io/components/avatar): Avatars, shapes, and fallback content.
+- [Badge](https://dxui-org.github.io/components/badge): Badges and appearance.
+- [ProgressBar](https://dxui-org.github.io/components/progress-bar): Progress values and display.
+
+## Public API
+
+- [API Index](https://dxui-org.github.io/api/): Find public declarations and related examples by name.
+- [Common Component Contracts](https://dxui-org.github.io/api/common): Shared rules for View, Key, props, styles, and pointer events.
+- [Application API](https://dxui-org.github.io/api/application): AppOptions, lifecycle, shortcuts, clipboard, caches, and diagnostics.
+- [Window Management](https://dxui-org.github.io/api/windows): WindowOptions, creation, scheduling, window controls, closing, and errors.
+- [Layout and Style Values](https://dxui-org.github.io/api/values): Geometry, dimensions, positioning, painting, and optional values.
+- [Theme API](https://dxui-org.github.io/api/theme): Theme structure, color and size tokens, and SetTheme.
+- [Fonts and Resources](https://dxui-org.github.io/api/resources-guide): Font loading, image resources, and icon usage.
+- [Runtime Declarations](https://dxui-org.github.io/api/runtime): Application and window types, methods, errors, and source contracts.
+- [Component Types](https://dxui-org.github.io/api/components): Component functions, props, enums, and callback declarations.
+- [Style Types](https://dxui-org.github.io/api/style): Exact declarations for layout, style, and geometry types.
+- [All Tokens](https://dxui-org.github.io/api/tokens): Color, size, and theme declarations.
+- [Resource Types](https://dxui-org.github.io/api/resources): Exact declarations for font and icon resources.
+
+## Optional
+
+- [AI Integration: llms.txt](https://dxui-org.github.io/ai/llms-txt): How to provide documentation to AI assistants, with a sample prompt.
+- [AI Integration: dxui-skill](https://dxui-org.github.io/ai/dxui-skill): A coding skill with local API references, component guides, and runnable examples.
+- [Official Icon Catalog](https://dxui-org.github.io/api/icons): All icon names and constructors; consult when choosing icons.
+- [Complete Examples](https://dxui-org.github.io/examples/): Runnable component and multi-window examples.
+- [DXUI Changelog](https://dxui-org.github.io/api/coverage): Framework features, public APIs, and behavior changes.
+- [Chinese Documentation](https://dxui-org.github.io/zh-cn/guide/): The complete guide, component reference, and public APIs in Simplified Chinese.
