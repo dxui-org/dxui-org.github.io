@@ -74,6 +74,7 @@ function localeTheme(zh: boolean): DefaultTheme.Config {
 
 export default defineConfig({
   lang: 'en', title: 'DXUI', cleanUrls: true,
+  sitemap: { hostname: 'https://dxui-org.github.io' },
   description: 'DXUI tutorials, complete component examples, and public API references for Go developers.',
   locales: {
     root: { label: 'English', lang: 'en', themeConfig: localeTheme(false) },
