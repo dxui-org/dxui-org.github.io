@@ -2,6 +2,15 @@
 
 记录 DXUI 的功能、公开 API 与行为变化。
 
+## 2026-10-15 · 类型化指针光标
+
+对应 DXUI 源码提交：`ea1f823`。
+
+- 新增 `Cursor`、`CursorAuto`、`CursorDefault`、`CursorText` 和 `CursorPointer`。
+- 新增 `Style.Cursor`，可类型安全地覆盖悬停指针，而不改变焦点或激活行为。
+- `CursorAuto` 为 Input 和 Textarea 使用文本 I-beam，为 Button 使用手形指针，其它位置使用默认箭头。
+- 装饰性子节点沿用外层控件的实际光标，除非显式覆盖。
+
 ## 2026-09-14 · 多窗口支持
 
 对应 DXUI 源码提交：`4e5ee7d`。

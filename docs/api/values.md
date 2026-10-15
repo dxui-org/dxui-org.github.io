@@ -43,10 +43,13 @@ This page groups shared APIs by purpose. See [style declarations](/api/style) fo
 | Shadow | Up to 4 outer shadows; nil inherits, non-nil empty slice clears. |
 | Opacity | Option[float32], 0..1, multiplied into the subtree; 0 excludes hit testing. |
 | Visibility | Defaults to Visible; Hidden retains layout but does not paint or hit-test. |
+| Cursor | Defaults to CursorAuto; selects the system pointer while hovering without adding interaction behavior. |
 | Text | Text styling and inherited color; see below. |
 | Force | Final StylePatch; painting only, cannot change layout. |
 
 Align has Start/Center/End/Stretch; Justify has Start/Center/End/SpaceBetween; Direction has Vertical/Horizontal. Use the exported enum constants, not arbitrary integers.
+
+CursorAuto resolves to CursorText for Input and Textarea, CursorPointer for Button, and CursorDefault for other components. Explicit CursorDefault, CursorText, and CursorPointer override the component choice. Decorative descendants follow an enclosing control unless they explicitly select a cursor. Hidden, fully transparent, disabled, or PointerNone subtrees do not contribute a cursor target. Cursor is not part of StylePatch, so interaction states cannot change it.
 
 ## Border, Shadow, and TextStyle
 

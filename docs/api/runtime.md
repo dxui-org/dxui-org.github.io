@@ -128,7 +128,7 @@ and once for the final resize/scale event in each drained event batch.
 type LayoutContext struct{ Width, Height float32 }
 ```
 
-[Related example](/api/application) · Source `app.go:152`
+[Related example](/api/application) · Source `app.go:154`
 
 ## NewApp {#api-newapp}
 
@@ -141,7 +141,7 @@ NewApp creates an application configuration without starting the native runtime.
 func NewApp(options AppOptions) *App
 ```
 
-[Related example](/api/application) · Source `app.go:155`
+[Related example](/api/application) · Source `app.go:157`
 
 ## App.RunResponsive {#api-app-runresponsive}
 
@@ -156,7 +156,7 @@ invokes the builder again; only a later coalesced viewport event can do so.
 func (a *App) RunResponsive(root func(LayoutContext) View) error
 ```
 
-[Related example](/api/application) · Source `app.go:181`
+[Related example](/api/application) · Source `app.go:183`
 
 ## App.Run {#api-app-run}
 
@@ -174,7 +174,7 @@ returned; OnError also observes runtime failures when configured.
 func (a *App) Run(root func() View) (runErr error)
 ```
 
-[Related example](/api/application) · Source `app.go:206`
+[Related example](/api/application) · Source `app.go:208`
 
 ## App.SetTheme {#api-app-settheme}
 
@@ -190,7 +190,7 @@ While Run is active, call SetTheme from a UI callback or inside Update.
 func (a *App) SetTheme(source Theme) error
 ```
 
-[Related example](/api/application) · Source `app.go:411`
+[Related example](/api/application) · Source `app.go:415`
 
 ## App.SetClipboardText {#api-app-setclipboardtext}
 
@@ -205,7 +205,7 @@ remains on the UI thread. Invalid UTF-8 is normalized to replacement runes.
 func (a *App) SetClipboardText(value string) error
 ```
 
-[Related example](/api/application) · Source `app.go:499`
+[Related example](/api/application) · Source `app.go:503`
 
 ## App.Close {#api-app-close}
 
@@ -220,7 +220,7 @@ made before Run are no-ops.
 func (a *App) Close()
 ```
 
-[Related example](/api/application) · Source `app.go:529`
+[Related example](/api/application) · Source `app.go:533`
 
 ## App.Update {#api-app-update}
 
@@ -235,7 +235,7 @@ caller's goroutine and is safe to call from any goroutine.
 func (a *App) Update(update func()) error
 ```
 
-[Related example](/api/application) · Source `app.go:548`
+[Related example](/api/application) · Source `app.go:552`
 
 ## App.Invalidate {#api-app-invalidate}
 
@@ -249,7 +249,7 @@ goroutine; child windows use Window.Invalidate.
 func (a *App) Invalidate() error
 ```
 
-[Related example](/api/windows) · Source `app.go:574`
+[Related example](/api/windows) · Source `app.go:578`
 
 ## App.Diagnostics {#api-app-diagnostics}
 
@@ -262,7 +262,7 @@ Diagnostics returns a race-safe, backend-independent runtime snapshot.
 func (a *App) Diagnostics() RuntimeDiagnostics
 ```
 
-[Related example](/api/application) · Source `app.go:597`
+[Related example](/api/application) · Source `app.go:601`
 
 ## Assign {#api-assign}
 

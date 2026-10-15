@@ -13,6 +13,7 @@
 | 想改什么 | 在哪里设置 |
 | --- | --- |
 | 控件的尺寸、间距、背景 | 控件的 `Style`。 |
+| 悬停时的指针形状 | `Style.Cursor`；`CursorAuto` 选择组件默认值。 |
 | 鼠标悬停时的外观 | `States.Hover`，示例中设置了透明度。 |
 | 整个应用的配色 | 调用 `app.SetTheme`。 |
 
@@ -20,11 +21,14 @@
 
 ```go
 dxui.Style{
-    Width: dxui.Px(240),
-    Padding: dxui.Padding(16),
-    Background: dxui.ColorRGBA(240, 245, 255, 255),
+	Width:      dxui.Px(240),
+	Padding:    dxui.Padding(16),
+	Background: dxui.ColorRGBA(240, 245, 255, 255),
+	Cursor:     dxui.CursorPointer,
 }
 ```
+
+`CursorAuto` 是零值：Input 和 Textarea 使用文本 I-beam，Button 使用手形指针，其它组件使用默认箭头。可用 `CursorDefault`、`CursorText` 或 `CursorPointer` 显式覆盖。装饰性子节点会沿用外层控件的实际光标，除非子节点设置自己的 Cursor。光标覆盖只改变悬停反馈，不会让 View 自动获得点击、焦点或启用行为。
 
 ## 3. 切换主题
 

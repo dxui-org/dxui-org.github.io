@@ -43,10 +43,13 @@
 | Shadow | 最多 4 个外阴影；nil 继承，非 nil 空切片清除。 |
 | Opacity | Option[float32]，0..1，乘到子树；0 不命中。 |
 | Visibility | Visible 默认；Hidden 保留布局，不绘制/命中。 |
+| Cursor | CursorAuto 默认；选择悬停时的系统指针，不会附加交互行为。 |
 | Text | 文本样式与继承颜色，见下文。 |
 | Force | 最后应用的 StylePatch，仅绘制值，不能改变布局。 |
 
 Align 为 Start/Center/End/Stretch；Justify 为 Start/Center/End/SpaceBetween；Direction 为 Vertical/Horizontal。这些为枚举类型，使用公开常量，不自行构造越界整数。
+
+CursorAuto 对 Input 和 Textarea 解析为 CursorText，对 Button 解析为 CursorPointer，其它组件解析为 CursorDefault。显式 CursorDefault、CursorText、CursorPointer 会覆盖组件默认值。装饰性后代沿用外层控件的实际光标，除非自己选择 Cursor。Hidden、完全透明、Disabled 或 PointerNone 子树不会贡献光标命中目标。Cursor 不属于 StylePatch，因此交互状态不能切换光标。
 
 ## Border、Shadow 与 TextStyle
 

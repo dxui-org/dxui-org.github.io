@@ -128,7 +128,7 @@ and once for the final resize/scale event in each drained event batch.
 type LayoutContext struct{ Width, Height float32 }
 ```
 
-[对应示例](/zh-cn/api/application) · 源文件 `app.go:152`
+[对应示例](/zh-cn/api/application) · 源文件 `app.go:154`
 
 ## NewApp {#api-newapp}
 
@@ -141,7 +141,7 @@ NewApp creates an application configuration without starting the native runtime.
 func NewApp(options AppOptions) *App
 ```
 
-[对应示例](/zh-cn/api/application) · 源文件 `app.go:155`
+[对应示例](/zh-cn/api/application) · 源文件 `app.go:157`
 
 ## App.RunResponsive {#api-app-runresponsive}
 
@@ -156,7 +156,7 @@ invokes the builder again; only a later coalesced viewport event can do so.
 func (a *App) RunResponsive(root func(LayoutContext) View) error
 ```
 
-[对应示例](/zh-cn/api/application) · 源文件 `app.go:181`
+[对应示例](/zh-cn/api/application) · 源文件 `app.go:183`
 
 ## App.Run {#api-app-run}
 
@@ -174,7 +174,7 @@ returned; OnError also observes runtime failures when configured.
 func (a *App) Run(root func() View) (runErr error)
 ```
 
-[对应示例](/zh-cn/api/application) · 源文件 `app.go:206`
+[对应示例](/zh-cn/api/application) · 源文件 `app.go:208`
 
 ## App.SetTheme {#api-app-settheme}
 
@@ -190,7 +190,7 @@ While Run is active, call SetTheme from a UI callback or inside Update.
 func (a *App) SetTheme(source Theme) error
 ```
 
-[对应示例](/zh-cn/api/application) · 源文件 `app.go:411`
+[对应示例](/zh-cn/api/application) · 源文件 `app.go:415`
 
 ## App.SetClipboardText {#api-app-setclipboardtext}
 
@@ -205,7 +205,7 @@ remains on the UI thread. Invalid UTF-8 is normalized to replacement runes.
 func (a *App) SetClipboardText(value string) error
 ```
 
-[对应示例](/zh-cn/api/application) · 源文件 `app.go:499`
+[对应示例](/zh-cn/api/application) · 源文件 `app.go:503`
 
 ## App.Close {#api-app-close}
 
@@ -220,7 +220,7 @@ made before Run are no-ops.
 func (a *App) Close()
 ```
 
-[对应示例](/zh-cn/api/application) · 源文件 `app.go:529`
+[对应示例](/zh-cn/api/application) · 源文件 `app.go:533`
 
 ## App.Update {#api-app-update}
 
@@ -235,7 +235,7 @@ caller's goroutine and is safe to call from any goroutine.
 func (a *App) Update(update func()) error
 ```
 
-[对应示例](/zh-cn/api/application) · 源文件 `app.go:548`
+[对应示例](/zh-cn/api/application) · 源文件 `app.go:552`
 
 ## App.Invalidate {#api-app-invalidate}
 
@@ -249,7 +249,7 @@ goroutine; child windows use Window.Invalidate.
 func (a *App) Invalidate() error
 ```
 
-[对应示例](/zh-cn/api/windows) · 源文件 `app.go:574`
+[对应示例](/zh-cn/api/windows) · 源文件 `app.go:578`
 
 ## App.Diagnostics {#api-app-diagnostics}
 
@@ -262,7 +262,7 @@ Diagnostics returns a race-safe, backend-independent runtime snapshot.
 func (a *App) Diagnostics() RuntimeDiagnostics
 ```
 
-[对应示例](/zh-cn/api/application) · 源文件 `app.go:597`
+[对应示例](/zh-cn/api/application) · 源文件 `app.go:601`
 
 ## Assign {#api-assign}
 

@@ -38,3 +38,4 @@ git clone https://github.com/dxui-org/dxui-skill.git
 [llms.txt](./llms-txt) 提供在线文档入口；dxui-skill 将编程指导、API 参考和示例放在本地，适合在开发项目时使用。
 
 技能中的 API 参考对应特定源码版本。已有项目应以 `go.mod` 中实际使用的版本为准，生成代码后在本地构建并检查交互。
+

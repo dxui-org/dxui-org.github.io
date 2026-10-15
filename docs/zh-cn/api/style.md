@@ -510,10 +510,79 @@ const (
 
 [对应示例](/zh-cn/api/values) · 源文件 `style.go:175`
 
+## Cursor {#api-cursor}
+
+```text
+Cursor selects the system pointer shown while hovering a component.
+```
+
+
+```go
+type Cursor uint8
+```
+
+[对应示例](/zh-cn/api/values) · 源文件 `style.go:179`
+
+## CursorAuto {#api-cursorauto}
+
+```text
+CursorAuto uses the component default: text for editors, pointer for Button,
+and the default arrow for other controls. Decorative children follow the
+enclosing control unless they explicitly select a cursor.
+```
+
+
+```go
+const (
+	// CursorAuto uses the component default: text for editors, pointer for Button,
+	// and the default arrow for other controls. Decorative children follow the
+	// enclosing control unless they explicitly select a cursor.
+	CursorAuto Cursor = iota
+	// CursorDefault selects the default arrow.
+	CursorDefault
+	// CursorText selects the text I-beam.
+	CursorText
+	// CursorPointer selects the pointing hand used for clickable buttons.
+	CursorPointer
+)
+```
+
+[对应示例](/zh-cn/api/values) · 源文件 `style.go:185`
+
+## CursorDefault {#api-cursordefault}
+
+```text
+CursorDefault selects the default arrow.
+```
+
+类型和值见本页同组常量块。
+
+[对应示例](/zh-cn/api/values) · 源文件 `style.go:187`
+
+## CursorText {#api-cursortext}
+
+```text
+CursorText selects the text I-beam.
+```
+
+类型和值见本页同组常量块。
+
+[对应示例](/zh-cn/api/values) · 源文件 `style.go:189`
+
+## CursorPointer {#api-cursorpointer}
+
+```text
+CursorPointer selects the pointing hand used for clickable buttons.
+```
+
+类型和值见本页同组常量块。
+
+[对应示例](/zh-cn/api/values) · 源文件 `style.go:191`
+
 ## Style {#api-style}
 
 ```text
-Style contains the supported layout, paint, and typography controls. Box
+Style contains the supported layout, paint, typography, and cursor controls. Box
 is always single-line; there is intentionally no wrap or order
 property. The zero value is safe and selects intrinsic sizing and theme
 defaults.
@@ -542,7 +611,9 @@ type Style struct {
 	Shadow     []Shadow
 	Opacity    Option[float32]
 	Visibility Visibility
-	Text       TextStyle
+	// Cursor affects hover appearance only; it adds no focus or activation behavior.
+	Cursor Cursor
+	Text   TextStyle
 	// Force is applied after component and interaction-state styles. It is for
 	// deliberate paint overrides such as suppressing a focus ring; ordinary
 	// base appearance belongs in the fields above so Hover/Pressed/Focus remain
@@ -551,7 +622,7 @@ type Style struct {
 }
 ```
 
-[对应示例](/zh-cn/api/values) · 源文件 `style.go:182`
+[对应示例](/zh-cn/api/values) · 源文件 `style.go:198`
 
 ## Visibility {#api-visibility}
 
@@ -564,7 +635,7 @@ Visibility controls whether a node contributes display items.
 type Visibility uint8
 ```
 
-[对应示例](/zh-cn/api/values) · 源文件 `style.go:212`
+[对应示例](/zh-cn/api/values) · 源文件 `style.go:230`
 
 ## Visible {#api-visible}
 
@@ -576,13 +647,13 @@ const (
 )
 ```
 
-[对应示例](/zh-cn/api/values) · 源文件 `style.go:215`
+[对应示例](/zh-cn/api/values) · 源文件 `style.go:233`
 
 ## Hidden {#api-hidden}
 
 类型和值见本页同组常量块。
 
-[对应示例](/zh-cn/api/values) · 源文件 `style.go:216`
+[对应示例](/zh-cn/api/values) · 源文件 `style.go:234`
 
 ## PointerBehavior {#api-pointerbehavior}
 
@@ -595,7 +666,7 @@ PointerBehavior controls pointer participation for a view subtree.
 type PointerBehavior uint8
 ```
 
-[对应示例](/zh-cn/api/values) · 源文件 `style.go:220`
+[对应示例](/zh-cn/api/values) · 源文件 `style.go:238`
 
 ## PointerAuto {#api-pointerauto}
 
@@ -609,7 +680,7 @@ const (
 )
 ```
 
-[对应示例](/zh-cn/api/values) · 源文件 `style.go:223`
+[对应示例](/zh-cn/api/values) · 源文件 `style.go:241`
 
 ## PointerNone {#api-pointernone}
 
@@ -620,7 +691,7 @@ decorative overlays that must not intercept content below them.
 
 类型和值见本页同组常量块。
 
-[对应示例](/zh-cn/api/values) · 源文件 `style.go:226`
+[对应示例](/zh-cn/api/values) · 源文件 `style.go:244`
 
 ## BorderPattern {#api-borderpattern}
 
@@ -633,7 +704,7 @@ BorderPattern selects how a border is painted. The zero value is solid.
 type BorderPattern uint8
 ```
 
-[对应示例](/zh-cn/api/values) · 源文件 `style.go:230`
+[对应示例](/zh-cn/api/values) · 源文件 `style.go:248`
 
 ## BorderSolid {#api-bordersolid}
 
@@ -645,13 +716,13 @@ const (
 )
 ```
 
-[对应示例](/zh-cn/api/values) · 源文件 `style.go:233`
+[对应示例](/zh-cn/api/values) · 源文件 `style.go:251`
 
 ## BorderDashed {#api-borderdashed}
 
 类型和值见本页同组常量块。
 
-[对应示例](/zh-cn/api/values) · 源文件 `style.go:234`
+[对应示例](/zh-cn/api/values) · 源文件 `style.go:252`
 
 ## BorderSides {#api-bordersides}
 
@@ -664,7 +735,7 @@ BorderSides selects edges. Zero means all edges, not an absent border.
 type BorderSides uint8
 ```
 
-[对应示例](/zh-cn/api/values) · 源文件 `style.go:238`
+[对应示例](/zh-cn/api/values) · 源文件 `style.go:256`
 
 ## BorderTop {#api-bordertop}
 
@@ -679,31 +750,31 @@ const (
 )
 ```
 
-[对应示例](/zh-cn/api/values) · 源文件 `style.go:241`
+[对应示例](/zh-cn/api/values) · 源文件 `style.go:259`
 
 ## BorderRight {#api-borderright}
 
 类型和值见本页同组常量块。
 
-[对应示例](/zh-cn/api/values) · 源文件 `style.go:242`
+[对应示例](/zh-cn/api/values) · 源文件 `style.go:260`
 
 ## BorderBottom {#api-borderbottom}
 
 类型和值见本页同组常量块。
 
-[对应示例](/zh-cn/api/values) · 源文件 `style.go:243`
+[对应示例](/zh-cn/api/values) · 源文件 `style.go:261`
 
 ## BorderLeft {#api-borderleft}
 
 类型和值见本页同组常量块。
 
-[对应示例](/zh-cn/api/values) · 源文件 `style.go:244`
+[对应示例](/zh-cn/api/values) · 源文件 `style.go:262`
 
 ## BorderAll {#api-borderall}
 
 类型和值见本页同组常量块。
 
-[对应示例](/zh-cn/api/values) · 源文件 `style.go:245`
+[对应示例](/zh-cn/api/values) · 源文件 `style.go:263`
 
 ## Border {#api-border}
 
@@ -725,7 +796,7 @@ type Border struct {
 }
 ```
 
-[对应示例](/zh-cn/api/values) · 源文件 `style.go:250`
+[对应示例](/zh-cn/api/values) · 源文件 `style.go:268`
 
 ## NoBorder {#api-noborder}
 
@@ -739,7 +810,7 @@ patches may restore a border; Style.Force is applied after those patches.
 func NoBorder() Border
 ```
 
-[对应示例](/zh-cn/api/values) · 源文件 `style.go:262`
+[对应示例](/zh-cn/api/values) · 源文件 `style.go:280`
 
 ## Stroke {#api-stroke}
 
@@ -752,7 +823,7 @@ Stroke creates a solid border with a literal logical-unit width.
 func Stroke(width float32, color ColorValue) Border
 ```
 
-[对应示例](/zh-cn/api/values) · 源文件 `style.go:265`
+[对应示例](/zh-cn/api/values) · 源文件 `style.go:283`
 
 ## Shadow {#api-shadow}
 
@@ -770,7 +841,7 @@ type Shadow struct {
 }
 ```
 
-[对应示例](/zh-cn/api/values) · 源文件 `style.go:271`
+[对应示例](/zh-cn/api/values) · 源文件 `style.go:289`
 
 ## FontWeight {#api-fontweight}
 
@@ -783,7 +854,7 @@ FontWeight selects the nearest registered face weight in a family.
 type FontWeight uint16
 ```
 
-[对应示例](/zh-cn/api/values) · 源文件 `style.go:278`
+[对应示例](/zh-cn/api/values) · 源文件 `style.go:296`
 
 ## WeightRegular {#api-weightregular}
 
@@ -796,19 +867,19 @@ const (
 )
 ```
 
-[对应示例](/zh-cn/api/values) · 源文件 `style.go:281`
+[对应示例](/zh-cn/api/values) · 源文件 `style.go:299`
 
 ## WeightMedium {#api-weightmedium}
 
 类型和值见本页同组常量块。
 
-[对应示例](/zh-cn/api/values) · 源文件 `style.go:282`
+[对应示例](/zh-cn/api/values) · 源文件 `style.go:300`
 
 ## WeightBold {#api-weightbold}
 
 类型和值见本页同组常量块。
 
-[对应示例](/zh-cn/api/values) · 源文件 `style.go:283`
+[对应示例](/zh-cn/api/values) · 源文件 `style.go:301`
 
 ## FontSlant {#api-fontslant}
 
@@ -821,7 +892,7 @@ FontSlant selects a registered normal or italic face.
 type FontSlant uint8
 ```
 
-[对应示例](/zh-cn/api/values) · 源文件 `style.go:287`
+[对应示例](/zh-cn/api/values) · 源文件 `style.go:305`
 
 ## SlantNormal {#api-slantnormal}
 
@@ -833,13 +904,13 @@ const (
 )
 ```
 
-[对应示例](/zh-cn/api/values) · 源文件 `style.go:290`
+[对应示例](/zh-cn/api/values) · 源文件 `style.go:308`
 
 ## SlantItalic {#api-slantitalic}
 
 类型和值见本页同组常量块。
 
-[对应示例](/zh-cn/api/values) · 源文件 `style.go:291`
+[对应示例](/zh-cn/api/values) · 源文件 `style.go:309`
 
 ## TextAlign {#api-textalign}
 
@@ -852,7 +923,7 @@ TextAlign is horizontal alignment within a Text node's content box.
 type TextAlign uint8
 ```
 
-[对应示例](/zh-cn/api/values) · 源文件 `style.go:295`
+[对应示例](/zh-cn/api/values) · 源文件 `style.go:313`
 
 ## TextStart {#api-textstart}
 
@@ -865,19 +936,19 @@ const (
 )
 ```
 
-[对应示例](/zh-cn/api/values) · 源文件 `style.go:298`
+[对应示例](/zh-cn/api/values) · 源文件 `style.go:316`
 
 ## TextCenter {#api-textcenter}
 
 类型和值见本页同组常量块。
 
-[对应示例](/zh-cn/api/values) · 源文件 `style.go:299`
+[对应示例](/zh-cn/api/values) · 源文件 `style.go:317`
 
 ## TextEnd {#api-textend}
 
 类型和值见本页同组常量块。
 
-[对应示例](/zh-cn/api/values) · 源文件 `style.go:300`
+[对应示例](/zh-cn/api/values) · 源文件 `style.go:318`
 
 ## TextStyle {#api-textstyle}
 
@@ -903,7 +974,7 @@ type TextStyle struct {
 }
 ```
 
-[对应示例](/zh-cn/api/values) · 源文件 `style.go:309`
+[对应示例](/zh-cn/api/values) · 源文件 `style.go:327`
 
 ## ComponentToken {#api-componenttoken}
 
@@ -916,7 +987,7 @@ ComponentToken names a component-level theme entry.
 type ComponentToken string
 ```
 
-[对应示例](/zh-cn/api/values) · 源文件 `style.go:320`
+[对应示例](/zh-cn/api/values) · 源文件 `style.go:338`
 
 ## PrimitiveTokens {#api-primitivetokens}
 
@@ -932,7 +1003,7 @@ type PrimitiveTokens struct {
 }
 ```
 
-[对应示例](/zh-cn/api/values) · 源文件 `style.go:323`
+[对应示例](/zh-cn/api/values) · 源文件 `style.go:341`
 
 ## SemanticTokens {#api-semantictokens}
 
@@ -949,7 +1020,7 @@ type SemanticTokens struct {
 }
 ```
 
-[对应示例](/zh-cn/api/values) · 源文件 `style.go:330`
+[对应示例](/zh-cn/api/values) · 源文件 `style.go:348`
 
 ## StylePatch {#api-stylepatch}
 
@@ -971,7 +1042,7 @@ type StylePatch struct {
 }
 ```
 
-[对应示例](/zh-cn/api/values) · 源文件 `style.go:337`
+[对应示例](/zh-cn/api/values) · 源文件 `style.go:355`
 
 ## StateStyles {#api-statestyles}
 
@@ -991,7 +1062,7 @@ type StateStyles struct {
 }
 ```
 
-[对应示例](/zh-cn/api/values) · 源文件 `style.go:348`
+[对应示例](/zh-cn/api/values) · 源文件 `style.go:366`
 
 ## ComponentTheme {#api-componenttheme}
 
@@ -1007,7 +1078,7 @@ type ComponentTheme struct {
 }
 ```
 
-[对应示例](/zh-cn/api/values) · 源文件 `style.go:358`
+[对应示例](/zh-cn/api/values) · 源文件 `style.go:376`
 
 ## Theme {#api-theme}
 
@@ -1025,7 +1096,7 @@ type Theme struct {
 }
 ```
 
-[对应示例](/zh-cn/api/values) · 源文件 `style.go:365`
+[对应示例](/zh-cn/api/values) · 源文件 `style.go:383`
 
 ## Direction {#api-direction}
 
@@ -1038,7 +1109,7 @@ Direction selects Box's main axis. Vertical is the zero value.
 type Direction uint8
 ```
 
-[对应示例](/zh-cn/api/values) · 源文件 `style.go:384`
+[对应示例](/zh-cn/api/values) · 源文件 `style.go:402`
 
 ## Vertical {#api-vertical}
 
@@ -1056,7 +1127,7 @@ const (
 )
 ```
 
-[对应示例](/zh-cn/api/values) · 源文件 `style.go:388`
+[对应示例](/zh-cn/api/values) · 源文件 `style.go:406`
 
 ## Horizontal {#api-horizontal}
 
@@ -1066,7 +1137,7 @@ Horizontal lays out Box children from left to right.
 
 类型和值见本页同组常量块。
 
-[对应示例](/zh-cn/api/values) · 源文件 `style.go:390`
+[对应示例](/zh-cn/api/values) · 源文件 `style.go:408`
 
 ## BoxProps {#api-boxprops}
 
@@ -1091,5 +1162,5 @@ type BoxProps struct {
 }
 ```
 
-[对应示例](/zh-cn/api/values) · 源文件 `style.go:395`
+[对应示例](/zh-cn/api/values) · 源文件 `style.go:413`
 

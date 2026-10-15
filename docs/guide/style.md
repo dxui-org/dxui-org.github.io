@@ -13,6 +13,7 @@ Click **Switch theme** to change themes. Hover over the button to make it slight
 | What to change | Where |
 | --- | --- |
 | Control size, spacing, and background | The control's Style. |
+| Pointer shape while hovering | `Style.Cursor`; `CursorAuto` selects the component default. |
 | Hover appearance | States.Hover; the example changes opacity. |
 | Application colors | Call app.SetTheme. |
 
@@ -20,11 +21,14 @@ Start with Style for normal appearance. For example:
 
 ```go
 dxui.Style{
-    Width: dxui.Px(240),
-    Padding: dxui.Padding(16),
-    Background: dxui.ColorRGBA(240, 245, 255, 255),
+	Width:      dxui.Px(240),
+	Padding:    dxui.Padding(16),
+	Background: dxui.ColorRGBA(240, 245, 255, 255),
+	Cursor:     dxui.CursorPointer,
 }
 ```
+
+`CursorAuto` is the zero value. It shows a text I-beam for Input and Textarea, a pointing hand for Button, and the default arrow for other components. Use `CursorDefault`, `CursorText`, or `CursorPointer` to override that choice. Decorative children inherit the enclosing control's effective cursor unless they set their own cursor. A cursor override changes hover feedback only; it does not make a view clickable, focusable, or enabled.
 
 ## 3. Switch themes
 
